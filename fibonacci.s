@@ -24,7 +24,7 @@ F1:     ble  t3, a0, L1
 # frame size: 32 bytes
 #    - 4 words to back ra and fp up
 #    - 4 words to store local variables
-# register convention: Use as few registers as possible
+# register convention: Use as few temporal registers as possible
     .text
 	.globl	main
 main:
@@ -34,7 +34,7 @@ main:
         addi    fp, sp, 32          # updates fp to point the frame's bottom
         addi    a0, zero, TARGET    # Computes function's argument
         jal     fibonacci_number    # Call function
-        sw      a0, 16(fp)          # Saves returned value in F
+        sw      a0, -16(fp)          # Saves returned value in F
 #   return 0    
         addi    a0, zero, 0
         lw      ra, 32(sp)          # restores ra
