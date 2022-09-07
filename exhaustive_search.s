@@ -57,7 +57,7 @@ main:
         addi t1, zero, 3                # t1 gets 3
         sw   t1, 36(t0)                 # saves t1 in a[9]
         # int key = 3;
-        addi t0, zero, -90              # t0 gets 3
+        addi t0, zero, 3              # t0 gets 3
         sw   t0, -56(fp)                # key gets 3
         # int index = exhaustive_search(a, 10, key);
         lw   a2, -56(fp)                # a2 <- M[fp - 56]
